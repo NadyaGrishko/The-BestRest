@@ -14,17 +14,17 @@
 1.	JDK
 2.	IDE
 Причому JDK складається з:
-•	компілятора javac
-•	повного набору бібліотек Java
-•	документації
-•	прикладів
-•	утиліт
-•	JRE
+- компілятора javac
+- повного набору бібліотек Java
+-	документації
+-	прикладів
+-	утиліт
+-	JRE
 У свою чергу, JRE складається з:
-•	JVM (Java Virtual Machine)
-•	мінімального набору бібліотек Java
+-	JVM (Java Virtual Machine)
+-	мінімального набору бібліотек Java
 
 Серед IDE можна обрати один із наступних:
-•	Eclipse
-•	JetBrains IntelliJ IDEA
-•	NetBeans
+1) Eclipse
+2) JetBrains IntelliJ IDEA
+3) NetBeans
