@@ -1,0 +1,394 @@
+/* Часть 1 - слайдер зображень */
+
+
+/* Название ресторана*/
+.name {
+    width: 29%; /* Ширина элемента в пикселах */
+    padding: 10px; /* Поля вокруг текста */
+    margin: auto; /* Выравниваем по центру */
+    background: #fc0;
+    border-radius: 30px 0 30px 0;
+    border: 5px solid #FF7F00;
+    position: relative; /* Относительное позиционирование */
+    top: 60px;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../images/fon2.jpg); /* Задний фон */
+}
+
+
+.wrapper {
+    height: 350px;
+    margin: 100px auto 0;
+    position: relative;
+    width: 700px;
+}
+
+.slider {
+    background-color: #ddd;
+    height: inherit;
+    overflow: hidden;
+    position: relative;
+    width: inherit;
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    -o-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+}
+
+.wrapper > input {
+    display: none;
+}
+
+
+.slides {
+    height: inherit;
+    position: absolute;
+    width: inherit;
+}
+
+.slide1 { background-image: url(../images/dish1.jpg); }
+.slide2 { background-image: url(../images/dish2.jpg); }
+.slide3 { background-image: url(../images/dish3.jpg); }
+.slide4 { background-image: url(../images/dish4.jpg); }
+.slide5 { background-image: url(../images/dish5.jpg); }
+
+.wrapper .controls {
+    left: 50%;
+    margin-left: -98px;
+    position: absolute;
+}
+
+.wrapper label {
+    cursor: pointer;
+    display: inline-block;
+    height: 8px;
+    margin: 25px 12px 0 16px;
+    position: relative;
+    width: 8px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.wrapper label:after {
+    border: 2px solid #ddd;
+    content: " ";
+    display: block;
+    height: 12px;
+    left: -4px;
+    position: absolute;
+    top: -4px;
+    width: 12px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.wrapper label {
+    cursor: pointer;
+    display: inline-block;
+    height: 8px;
+    margin: 25px 12px 0 16px;
+    position: relative;
+    width: 8px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-transition: background ease-in-out .5s;
+    -moz-transition: background ease-in-out .5s;
+    -o-transition: background ease-in-out .5s;
+    transition: background ease-in-out .5s;
+}
+
+.wrapper label:hover, 
+#slide1:checked ~ .controls label:nth-of-type(1),
+#slide2:checked ~ .controls label:nth-of-type(2),
+#slide3:checked ~ .controls label:nth-of-type(3),
+#slide4:checked ~ .controls label:nth-of-type(4),
+#slide5:checked ~ .controls label:nth-of-type(5) {
+    background: #ddd;
+}
+
+.slides {
+    height: inherit;
+    opacity: 0;
+    position: absolute;
+    width: inherit;
+    z-index: 0;
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+    -webkit-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+    -moz-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+    -o-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+    transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+}
+
+#slide1:checked ~ .slider > .slide1,
+#slide2:checked ~ .slider > .slide2,
+#slide3:checked ~ .slider > .slide3,
+#slide4:checked ~ .slider > .slide4,
+#slide5:checked ~ .slider > .slide5 {
+    opacity: 1;
+    z-index: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+
+
+/* Часть 1 - меню */
+
+
+/*
+#navbar {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+#navbar li { display: inline; }
+
+#navbar {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  border: 2px solid darkgreen;
+  border-radius: 20px 5px;
+  width: 550px;
+  text-align: center;
+  background-color: limegreen;
+}
+#navbar a {
+  color: #fff;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  width: 100px;
+}
+#navbar a:hover {
+  border-radius: 20px 5px;
+  background-color: lime;
+}
+*/
+
+
+/* Часть 1 - меню */
+.menu {
+    font: 18px 'Comic Sans MS';
+    margin: 0;
+    padding: 0;
+}
+ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ul:after {
+    display: block;
+    content: ' ';
+    clear: both;
+    float: none;
+}
+ul.menu > li {
+    float: left;
+    position: relative;
+    border-right: 3px solid black;
+}
+
+ul.menu > li > a {
+    display: block;
+    padding: 10px;
+    color: white;
+    background-color: limegreen;
+    text-decoration: none;
+}
+ul.menu > li > a:hover {
+    background-color: mediumspringgreen;
+}
+ul.submenu {
+    display: none;
+    position: absolute;
+    top: 41px;
+    left: 0;
+    background-color: darkred;
+    border: 3px solid red;
+}
+ul.submenu > li {
+    display: block;
+}
+ul.submenu > li > a {
+    display: block;
+    padding: 10px;
+    color: white;
+    background-color: darkorange;
+    text-decoration: none;
+}
+ul.submenu > li > a:hover {
+    text-decoration: underline;
+}
+
+
+ul.menu > li:hover > ul.submenu {
+    display: block;
+}
+
+
+
+/* Часть 3 - Хлебные крошки */
+/* Style the list */
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: khaki;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+}
+
+/* Часть 4 контент, скролл */
+
+   .content {
+    overflow: scroll; /* Добавляем полосы прокрутки */
+    width: 47%; /* Ширина блока */
+    height: 39em; /* Высота блока */
+    padding: 5px; /* Поля вокруг текста */
+    border: solid 5px gold; /* Параметры рамки */
+    margin-left: 23%;
+    border-radius: 20px 5px;
+    background-image: url(../images/orange.jpg);
+   } 
+
+
+
+
+/* Галерея картинок */
+
+.hovergallery {
+    width: 100%;
+    height: 100%;
+}
+
+.hovergallery img{
+
+-webkit-transform:scale(0.8); /*Webkit: уменьшаем размер до 0.8*/
+
+-moz-transform:scale(0.8); /*Mozilla: масштабирование*/
+
+-o-transform:scale(0.8); /*Opera: масштабирование*/
+
+-webkit-transition-duration: 0.5s; /*Webkit: длительность анимации*/
+
+-moz-transition-duration: 0.5s; /*Mozilla: длительность анимации*/
+
+-o-transition-duration: 0.5s; /*Opera: длительность анимации*/
+
+opacity: 1; /*Начальная прозрачность изображений*/
+margin: 0 10px 5px 0; /*Интервалы между изображениями*/
+
+}
+
+ 
+
+.hovergallery img:hover{
+
+-webkit-transform:scale(1.1); /*Webkit: увеличиваем размер до 1.2x*/
+
+-moz-transform:scale(1.1); /*Mozilla: масштабирование*/
+
+-o-transform:scale(1.1); /*Opera: масштабирование*/
+
+box-shadow:0px 0px 30px gray; /*CSS3 тени: 30px размытая тень вокруг всего изображения*/
+
+-webkit-box-shadow:0px 0px 30px gray; /*Webkit: тени*/
+
+-moz-box-shadow:0px 0px 30px gray; /*Mozilla: тени*/
+
+opacity: 1;
+
+}
+
+
+
+
+
+/**/
+
+
+
+.main-menu {
+    width: 180px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-menu a {
+    display: block;
+    margin-bottom: -1px;
+    padding: 8px 14px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid #e5e5e5;
+
+    background: khaki;
+
+}
+
+.main-menu a:hover {
+    background: lightgrey;
+}
+
+.main-menu > li {
+}
+
+/* Подменю */
+
+.main-menu .sub-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: khaki;
+}
+
